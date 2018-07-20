@@ -18,4 +18,11 @@ public class TakenBook extends BaseEntity{
 	
 	@Column(name="date_end", nullable=false, length=10)
 	private String dateEnd;
+
+	@OneToOne
+	@JoinColumn(name="book_id")
+	private Book book;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 }

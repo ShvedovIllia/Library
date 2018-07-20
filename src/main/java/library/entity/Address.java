@@ -1,5 +1,7 @@
 package library.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.*;
@@ -28,4 +30,7 @@ public class Address extends BaseEntity{
 
 	@Column(name = "apartment_number", nullable = false, length = 10)
 	private int apartmentNumber;
+	
+	@OneToMany(mappedBy="address")
+	private List<User> user;
 }

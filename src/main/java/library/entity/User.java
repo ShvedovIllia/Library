@@ -7,6 +7,9 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+
+@Builder
 
 @Entity
 @Table(name = "user")
@@ -17,7 +20,7 @@ public class User extends BaseEntity{
 	private String fullName;
 
 	@Column(name = "phone_number", nullable = false, length = 15, unique = true)
-	private int phoneNumber;
+	private String phoneNumber;
 
 	@Column(name = "email", nullable = false, length = 50, unique = true)
 	private String email;
@@ -27,4 +30,8 @@ public class User extends BaseEntity{
 
 	@Column(name = "details", columnDefinition = "text")
 	private String details;
+	
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
 }
